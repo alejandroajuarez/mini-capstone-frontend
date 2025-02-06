@@ -1,0 +1,36 @@
+export function ProductsShow({ product }) {
+  const handleUpdate = (event) => {
+    event.preventDefault()
+    console.log("Handling Update");
+    const params = new FormData(event.target)
+    ontimeupdate(params, product)
+  }
+
+  const handleRemove = () => {
+    console.log('Delete the Product post')
+    onDestroy(product)
+  }
+
+  return (
+    <div>
+      <h1><b>id: </b>{product.id}</h1>
+      <h1><b>Product Name: </b>{product.name}</h1>
+      <h2>Price: {product.price}</h2>
+      <p>Image URL: {product.image_url}</p>
+      <p>Description: {product.description}</p>
+
+      <form onSubmit={handleSubmit}>
+        <p>Product Name: <input type="text" name="name" defaultValue={product.name} /></p>
+        <p>Price: <input type="text" name="price" defaultValue={product.price} /></p>
+        <p>Image URL: <input type="text" name="image_url" defaultValue={product.image_url} /></p>
+        <p>Description: <input type="text" name="description" defaultValue={product.description} /></p>
+        <button>Update Product</button>
+      </form>
+      <br />
+      <br />
+      <br />
+
+      <button onClick={hanleRemove}>Delete Product Listing</button>
+    </div>
+  )
+}
