@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 
 export function ProductsPage() {
     const [products, setProducts] = useState([]);
+    const [isProductsShowVisible, setIsProductsShowVisible] = useState(false);
+    const [currentProduct, setCurrentProduct] = useState({});
 
     const handleIndex = () => {
       console.log("Handling Index");
@@ -16,11 +18,59 @@ export function ProductsPage() {
       });
     };
 
+    const handleShow = (product) => {
+      console.log(product);
+      setCurrentProduct(product);
+      console.log("Handling Show");
+      setIsProductsShowVisible(true);
+    }
+
+    const handleCreate = (params) => {
+      console.log("Handling Create");
+      axios.post("http://localhost:3000/products.json", params).then(response => {
+        console.log(response.data)
+        // Make a copy of the original product array, add the new product to it
+        // reset products in the new array
+        setProducts([...products, response.data])
+      })
+    }
+
+    const handleUpdate = (params, product) => {
+      console.log("handling update");
+      axios.patch(`http://localhost:3000/products/${product.id}.json`, params).then(response => {
+        console.log(response.data)
+        setIsProductsShowVisible(false)
+        // loop through products array
+        // find the product to update
+        // swap out current product values for response.data
+        setProducts(products.map(p => p.id === response.data.id ? response.data : p))
+      })
+    }
+
+    const handleDestroy = (product) => {
+      console.log("handling destroy");
+      axios.delete(`http://localhost:3000/products/${product.id}.json`).then(response => {
+        console.log(response.data);
+        // loop through the array of products, delete the one that is selected via product.id
+        setProducts(products.filter(p => p.id !== product.id))
+        setIsProductsShowVisible(false)
+      })
+    }
+
+    const closeModal = () => {
+      console.log("Closing Modal");
+      setIsProductsShowVisible(false)
+    }
+
     useEffect(handleIndex, []);
 
   return (
     <main>
-      <ProductsIndex products={products}/>
+      <ProductsNew onCreate={handleCreate} />
+      <ProductsIndex products={products} onShow={handleShow} />
+      <Modal show={isProductsShowVisible} onClose={closeModal}>
+        <ProductsShow product={currentProduct} onUpdate={handleUpdate} onDestroy={handleDestroy} />
+      </Modal>
     </main>
   )
 }

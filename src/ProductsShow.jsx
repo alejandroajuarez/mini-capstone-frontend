@@ -1,5 +1,5 @@
-export function ProductsShow({ product }) {
-  const handleUpdate = (event) => {
+export function ProductsShow({ product, onUpdate, onDestroy }) {
+  const handleSubmit = (event) => {
     event.preventDefault()
     console.log("Handling Update");
     const params = new FormData(event.target)
@@ -30,7 +30,7 @@ export function ProductsShow({ product }) {
       <br />
       <br />
 
-      <button onClick={hanleRemove}>Delete Product Listing</button>
+      <button onClick={handleRemove}>Delete Product Listing</button>
     </div>
   )
 }
