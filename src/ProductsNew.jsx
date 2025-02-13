@@ -19,25 +19,14 @@ export function ProductsNew({ onCreate }) {
           <input type="integer" className="form-control" id="price" name="price" />
         </div>
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">Listing Price: </label>
-          <input type="integer" className="form-control" id="price" name="price" />
+          <label htmlFor="image_url" className="form-label">Image URL: </label>
+          <input type="text" className="form-control" id="image_url" name="image_url" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Listing Description: </label>
+          <input type="text" className="form-control" id="description" name="description" />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Listing Title: <input type="text" name="name" />
-        </div>
-        <div>
-          Listing Price: <input type="integer" name="price" />
-        </div>
-        <div>
-          Image URL: <input type="text" name="image_url" />
-        </div>
-        <div>
-          Listing Description: <input type="text" name="description" />
-        </div>
-        <button type="submit">Post Listing</button>
       </form>
     </div>
   );

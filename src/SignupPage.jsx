@@ -29,21 +29,28 @@ export function SignupPage() {
           <li key={error}>{error}</li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
+      <form className="row g-3" onSubmit={handleSubmit}>
+        <div className="col-md-12">
+          <label htmlFor="name" className="form-label">Full Name: </label>
+          <input type="text" className="form-control" id="name" name="name" />
         </div>
-        <div>
-          Email: <input name="email" type="email" />
+        <div className="col-md-12">
+          <label htmlFor="email" className="form-label">Email: </label>
+          <input type="email" className="form-control" id="email" name="email" placeholder="john@example.com" />
         </div>
-        <div>
-          Password: <input name="password" type="password" />
+        <div className="col-6">
+          <label htmlFor="password" className="form-label">Password: </label>
+          <input type="password" className="form-control" id="password" name="password" />
         </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
+        <div className="col-6">
+          <label htmlFor="password" className="form-label">Confirm Password: </label>
+          <input type="password" className="form-control" id="password_confirmation" name="password_confirmation" />
         </div>
-        <button type="submit">Signup</button>
+        <div className="col-12">
+          <button type="submit" className="btn btn-primary">Sign up</button>
+        </div>
       </form>
     </div>
   );
 }
+
