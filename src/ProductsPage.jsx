@@ -1,6 +1,6 @@
 import { ProductsIndex } from "./ProductsIndex";
-import { ProductsNew } from './ProductsNew';
 import { ProductsShow } from './ProductsShow';
+// import { ProductsNew } from "./ProductsNew";
 import { Modal } from './Modal';
 import axios from 'axios';
 import { useState, useEffect } from "react";
@@ -23,16 +23,6 @@ export function ProductsPage() {
       setCurrentProduct(product);
       console.log("Handling Show");
       setIsProductsShowVisible(true);
-    }
-
-    const handleCreate = (params) => {
-      console.log("Handling Create");
-      axios.post("http://localhost:3000/products.json", params).then(response => {
-        console.log(response.data)
-        // Make a copy of the original product array, add the new product to it
-        // reset products in the new array
-        setProducts([...products, response.data])
-      })
     }
 
     const handleUpdate = (params, product) => {
@@ -66,7 +56,6 @@ export function ProductsPage() {
 
   return (
     <main>
-      <ProductsNew onCreate={handleCreate} />
       <ProductsIndex products={products} onShow={handleShow} />
       <Modal show={isProductsShowVisible} onClose={closeModal}>
         <ProductsShow product={currentProduct} onUpdate={handleUpdate} onDestroy={handleDestroy} />

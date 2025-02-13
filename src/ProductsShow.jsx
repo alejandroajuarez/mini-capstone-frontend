@@ -23,6 +23,7 @@ export function ProductsShow({ product, onUpdate, onDestroy }) {
 
       <form onSubmit={handleSubmit}>
         <p>Product Name: <input type="text" name="name"  /></p>
+        <p>Product Supplier ID: <input type="integer" name="supplier_id" /></p>
         <p>Price: <input type="text" name="price"  /></p>
         <p>Image URL: <input type="text" name="image_url"  /></p>
         <p>Description: <input type="text" name="description"  /></p>

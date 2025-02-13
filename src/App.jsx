@@ -5,6 +5,7 @@ import { ProductsPage } from "./ProductsPage";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { Footer } from "./Footer";
+import { ProductsNew } from "./ProductsNew";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage />,
       },
+      {
+        path: "/products/new",
+        element: <ProductsNew />,
+      }
     ],
   },
 ]);

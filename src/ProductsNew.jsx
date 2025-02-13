@@ -1,9 +1,14 @@
-export function ProductsNew({ onCreate }) {
+import axios from "axios";
+
+export function ProductsNew() {
   const handleSubmit = (event) => {
+    event.preventDefault();
     console.log("Handling Submit");
     const params = new FormData(event.target);
-    onCreate(params)
-    event.target.reset()
+    axios.post("http://localhost:3000/products.json", params).then(response => {
+      console.log(response.data);
+      window.location.href = "/"
+    })
   }
 
   return (
@@ -11,8 +16,12 @@ export function ProductsNew({ onCreate }) {
       <h1>New Product Listing</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Listing Title: </label>
+          <label htmlFor="name" className="form-label">Listing Name: </label>
           <input type="text" className="form-control" id="name" name="name" />          
+        </div>
+        <div className="mb-3">
+          <label htmlFor="supplier_id" className="form-label">Listing Supplier ID: </label>
+          <input type="integer" className="form-control" id="supplier_id" name="supplier_id" />
         </div>
         <div className="mb-3">
           <label htmlFor="price" className="form-label">Listing Price: </label>
