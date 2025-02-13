@@ -15,11 +15,11 @@ export function ProductsShow({ product, onUpdate, onDestroy }) {
   return (
     <div>
       {/* {JSON.stringify(product)} */}
-      <h1><b>id: </b>{product.id}</h1>
-      <h1><b>Product Name: </b>{product.name}</h1>
-      <h2>Price: {product.price}</h2>
-      <p>Image URL: {product.image_url}</p>
-      <p>Description: {product.description}</p>
+      {/* <h1><b>id: </b>{product.id}</h1> */}
+      <h2><b>Product Name: </b>{product.name}</h2>
+      <h4><b>Price:</b> ${product.price}</h4>
+      <p><b>Image URL:</b> {product.image_url}</p>
+      <p><b>Description:</b> {product.description}</p>
 
       <form onSubmit={handleSubmit}>
         <p>Product Name: <input type="text" name="name"  /></p>
