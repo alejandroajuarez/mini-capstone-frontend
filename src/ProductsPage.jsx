@@ -11,7 +11,7 @@ export function ProductsPage() {
 
     const handleIndex = () => {
       console.log("Handling Index");
-      axios.get("http://localhost:3000/products.json").then((response) => {
+      axios.get("http://localhost:3000/products.json").then(response => {
         console.log(response.data);
         setProducts(response.data);
       });
