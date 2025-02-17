@@ -1,3 +1,5 @@
+import { OrdersNew } from "./OrdersNew";
+
 export function ProductsShow({ product, onUpdate, onDestroy }) {
   console.log(product)
   const handleSubmit = (event) => {
@@ -15,13 +17,15 @@ export function ProductsShow({ product, onUpdate, onDestroy }) {
   return (
     <div>
       {/* {JSON.stringify(product)} */}
-      {/* <h1><b>id: </b>{product.id}</h1> */}
+      <h1><b>id: </b>{product.id}</h1>
       <h2><b>Product Name: </b>{product.name}</h2>
       <h4><b>Price:</b> ${product.price}</h4>
       <p><b>Image URL:</b> {product.image_url}</p>
       <p><b>Description:</b> {product.description}</p>
       <p><b>Supplier ID: </b> {product.supplier_id}</p>
 
+      <OrdersNew product={product}/>
+      
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Listing Name: </label>

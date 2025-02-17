@@ -19,6 +19,9 @@ export function Header() {
         <li className="nav-item">
           <a className="nav-link" href="/products/new">New Products</a>
         </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/orders/new">Orders</a>
+        </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
@@ -26,7 +29,7 @@ export function Header() {
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="/login">Login</Link></li>
             <li><Link className="dropdown-item" to="/signup">Sign Up</Link></li>
-            {/* <li><Link className="dropdown-item" href="/">Go back Home</Link></li> */}
+            <li><Link className="dropdown-item" href="#">Logout</Link></li>
           </ul>
         </li>
       </ul>

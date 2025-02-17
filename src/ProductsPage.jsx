@@ -1,6 +1,5 @@
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductsShow } from './ProductsShow';
-// import { ProductsNew } from "./ProductsNew";
 import { Modal } from './Modal';
 import axios from 'axios';
 import { useState, useEffect } from "react";
