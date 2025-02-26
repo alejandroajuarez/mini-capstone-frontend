@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LogoutLink } from "./LogoutLink";
 
 export function Header() {
   return (
@@ -29,7 +30,7 @@ export function Header() {
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="/login">Login</Link></li>
             <li><Link className="dropdown-item" to="/signup">Sign Up</Link></li>
-            <li><Link className="dropdown-item" href="#">Logout</Link></li>
+            <li><LogoutLink /></li>
           </ul>
         </li>
       </ul>
