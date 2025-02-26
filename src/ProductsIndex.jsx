@@ -14,6 +14,7 @@ export function ProductsIndex({ products, onShow }) {
                 <p className="card-text">${product.price}</p>
                 <p className="card-text">{product.description}</p>
                 <button type="Button" className="btn btn-primary" onClick={() => onShow (product)}>More Details</button>
+                <button type="button" className="btn btn-primary" >Add to Cart</button>
               </div>
             </div>
           </div>

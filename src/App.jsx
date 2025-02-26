@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <OrdersIndex />,
-        loader: () => axios.get("http://localhost:3000/orders.json").then(response => response.data)
+        loader: () => axios.get("/orders.json").then(response => response.data)
       },
     ],
   },

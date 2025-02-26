@@ -1,18 +1,6 @@
 import axios from "axios"
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export function OrdersNew() {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = () => {
-    axios.get("http://localhost:3000/products.json").then(response => {
-      console.log(response.data)
-      setProducts(response.data)
-    })
-  }
-
-  useEffect(getProducts, [])
+export function OrdersNew({product}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,9 +17,12 @@ export function OrdersNew() {
     <div id="orders-new">
       <h1>New Order</h1>
       <form onSubmit={handleSubmit}>
+        <div>
+          <input name="product_id" type="hidden" value={product.id} />
+        </div>
       <select className="form-select" aria-label="Default select example">
         <option selected>Open this select menu</option>
-        <option value="1">One</option>
+        <option defaultValue="1">One</option>
         {/* <option value="2">Two</option>
         <option value="3">Three</option> */}
       </select>
