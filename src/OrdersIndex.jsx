@@ -1,4 +1,7 @@
-export function OrdersIndex({orders}) {
+import { useLoaderData } from "react-router-dom";
+
+export function OrdersIndex() {
+  const orders = useLoaderData();
   console.log(orders);
 
   return (
