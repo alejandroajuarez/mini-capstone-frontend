@@ -9,8 +9,9 @@ export function OrdersIndex() {
       <h1>Your Orders</h1>
       {orders.map(order => (
         <div key={order.id}>
-          <p><b>product name:</b> {order.product.name}</p>
-          <p><b>product price:</b> {order.product.price}</p>
+          {JSON.stringify(order)}
+          {/* <p><b>product name:</b> {order.product.name}</p>
+          <p><b>product price:</b> {order.product.price}</p> */}
           <p><b>subtotal:</b> {order.subtotal}</p>
           <p><b>tax:</b> {order.tax}</p>
           <p><b>total:</b> {order.total}</p>

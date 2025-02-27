@@ -1,6 +1,9 @@
 import axios from "axios";
+import { useState } from "react";
 
 export function ProductsNew() {
+  const [errors, setErrors] = useState([])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Handling Submit");
@@ -9,11 +12,17 @@ export function ProductsNew() {
       console.log(response.data);
       window.location.href = "/"
     })
-  }
+    .catch((error) => {
+      console.log(error.response);
+      setErrors(error.response.data.errors);
+    });  }
 
   return (
     <div id="products-new">
       <h1>New Product Listing</h1>
+      {errors.map(error => (
+        <p key={error}>{error}</p>
+      ))}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Listing Name: </label>
