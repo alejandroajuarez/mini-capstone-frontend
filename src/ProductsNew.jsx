@@ -21,7 +21,7 @@ export function ProductsNew() {
     <div id="products-new">
       <h1>New Product Listing</h1>
       {errors.map(error => (
-        <p key={error}>{error}</p>
+        <span className="errors" key={error}>{error} <br /></span>
       ))}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
