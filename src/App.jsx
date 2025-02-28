@@ -8,7 +8,9 @@ import { Footer } from "./Footer";
 import { ProductsNew } from "./ProductsNew";
 import { OrdersNew } from "./OrdersNew";
 import { OrdersIndex } from "./OrdersIndex";
-import { CartedProductsIndex } from "./CartedProductsIndex";
+// import { CartedProductsIndex } from "./CartedProductsIndex";
+import { CategoriesShowPage } from "./CategoriesShowPage";
+import { CategoriesIndex } from "./CategoriesIndex";
 
 const router = createBrowserRouter([
   {
@@ -46,9 +48,14 @@ const router = createBrowserRouter([
         loader: () => axios.get("http://localhost:3000/orders.json").then(response => response.data)
       },
       {
-        path: "/carted_products",
-        element: <CartedProductsIndex />,
-        loader: () => axios.get("http://localhost:3000/carted_products.json").then(response => response.data)
+        path: "/categories",
+        element: <CategoriesIndex />,
+        loader: () => axios.get("http://localhost:3000/categories.json").then(response => response.data)
+      },
+      {
+        path: "/categories/:id",
+        element: <CategoriesShowPage />,
+        loader: ({ params }) => axios.get(`http://localhost:3000/categories/${params.id}.json`).then((response) => response.data)
       }
     ],
   },
