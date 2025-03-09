@@ -9,8 +9,8 @@ export function CategoriesShowPage() {
       <h1>{category.name}</h1>
       {category.products.map((product) =>
       <div key={product.id}>
-        <p>{product.name}</p>
-        <p>{product.price}</p>
+        <p><strong>{product.name}</strong></p>
+        <p>${product.price}</p>
         <hr />
       </div>
     )}

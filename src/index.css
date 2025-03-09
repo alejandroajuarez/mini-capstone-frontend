@@ -5,7 +5,7 @@ html {
 }
 
 .footer {
-  position: absolute;
+  position: bottom;
   bottom: 1%;
   text-align: center;
   width: 100%;

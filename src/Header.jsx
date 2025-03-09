@@ -1,4 +1,5 @@
 import { LogoutLink } from "./LogoutLink";
+import { ThemeToggleButton } from "bootstrap-theme-toggle";
 
 export function Header() {
   let authenticationLinks;
@@ -49,6 +50,9 @@ export function Header() {
             <ul className="dropdown-menu">
           {authenticationLinks}
           </ul>
+        <li className="nav-item">
+          <ThemeToggleButton />
+        </li>
       </ul>
     </div>
   </div>
